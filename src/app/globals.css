@@ -2,12 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.home {
-  height: 100vh;
+html {
+  scroll-behavior: smooth;
+}
+
+.ellipse {
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    #fcc 0%,
+    #ff8f8f 0.01%,
+    #ffd4ad 26.04%,
+    #ffb1e9 50%,
+    #de80ff 72.92%,
+    #f368bc 100%
+  );
+  filter: blur(230px);
+}
+
+.coin-container div {
+  @apply grid text-center bg-box-color place-content-center;
+
+  box-shadow: 4px 4px 80px 0px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(150px);
+}
+
+.coin-container .btc {
+  @apply gap-3 text-5xl;
+}
+
+.coins {
+  @apply text-xl;
+}
+
+.coin-1 {
+  @apply col-start-1 col-end-3 row-start-1 row-end-3;
+}
+
+.coin-3 {
+  @apply col-start-1 row-start-3 row-end-5;
+}
+
+.coin-4 {
+  @apply col-start-2 row-start-3 row-end-5;
+}
+
+.coin-5 {
+  @apply row-start-2 row-end-5;
+}
+
+.coin-6 {
+  @apply col-start-1 col-end-4;
+}
+
+@media screen and (width <= 768px) {
+  .home-container {
+    @apply flex-col-reverse justify-center text-center;
+  }
+  .coin-container {
+    @apply grid-cols-1;
+  }
+  .coin-container .btc {
+    @apply gap-0 text-2xl;
+  }
+  .coins {
+    @apply grid-cols-3;
+  }
+  .coins div {
+    @apply h-fit;
+  }
+  .coin-3,
+  .coin-4 {
+    @apply row-start-2;
+  }
+  .coin-5 {
+    @apply col-start-3;
+  }
+  .coin-6 {
+    @apply row-start-3;
+  }
+  .news-grid {
+    @apply grid-cols-1 grid-rows-3;
+  }
 }
